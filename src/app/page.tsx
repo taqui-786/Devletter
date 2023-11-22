@@ -1,5 +1,5 @@
-import InputForm from "@/component/InputForm";
-import MemberJoined from "@/component/MemberJoined";
+import InputForm from "@/app/InputForm";
+import MemberJoined from "@/app/MemberJoined";
 import SnowfallBG from "@/component/SnowfalBG";
 
 export default function Home() {
