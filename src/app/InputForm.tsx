@@ -10,7 +10,7 @@ const InputForm = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const data = await axios.post(`${process.env.DATABASE_URL}/api/subscribe`, { email: email });
+      const data = await axios.post(`/api/subscribe`, { email: email });
       if(data.status === 200){
         setSubscribed(true)
       }
