@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+export const dynamic = 'force-dynamic'
 const MyEmails = () => {
   const [emails, setEmails] = useState<any>([]);
   const getEmails = async () => {
