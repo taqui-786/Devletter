@@ -9,6 +9,10 @@ export async function POST(req: Request) {
         email: body.email,
       },
     });
+     // CHECKING EMAIL given ot Not
+     if (!body.email) {
+      return new Response("Action Prohibited!", { status: 301 });
+    }
     // CHECKING EMAIL EXIST FOR NOT 
     if (existed) {
       return new Response("Member Already Existed", { status: 201 });

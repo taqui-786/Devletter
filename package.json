@@ -10,14 +10,21 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.2",
     "@prisma/client": "^5.6.0",
+    "@react-email/components": "^0.0.11",
+    "@react-email/tailwind": "^0.0.12",
     "axios": "^1.6.2",
     "lucide-react": "^0.292.0",
     "next": "14.0.3",
     "prisma": "^5.6.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-snowfall": "^1.2.1"
+    "react-hook-form": "^7.48.2",
+    "react-snowfall": "^1.2.1",
+    "resend": "^2.0.0",
+    "sonner": "^1.2.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
