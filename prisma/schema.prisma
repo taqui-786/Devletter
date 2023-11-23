@@ -12,5 +12,5 @@ model subscriber {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
   name      String?
   email     String
-
+  createdAt DateTime  @default(now())
 }
