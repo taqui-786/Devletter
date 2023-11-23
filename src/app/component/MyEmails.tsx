@@ -6,7 +6,6 @@ const MyEmails = () => {
   const [emails, setEmails] = useState<any>([]);
   const getEmails = async () => {
     const data = await axios.get("/api/emails");
-    console.log(data.data.data);
     setEmails(data.data.data);
   };
   useEffect(() => {
