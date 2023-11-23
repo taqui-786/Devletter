@@ -1,6 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Devletter - Newsletter for Developer's
 
-## Getting Started
+A beautiful Newletter website made with Nextjs.
+
+![Demo] (https://firebasestorage.googleapis.com/v0/b/projectfriendz-45b49.appspot.com/o/images%2Fbanner2.png?alt=media&token=c96ca45b-6abf-4ff9-972d-217d89ab4d65)
+
+The site is implemented with beautiful template of thankyou email for the user who join.. But now in live it would not send you welcome email because it is hosted on vercel and render required verified domains.. 
+
+So to test thankyou email feature, clone it and don't forget to add your `RESEND_API_KEY` in .env file
+
+### Tech stack : 
+1. Nextjs,
+2. Typescript,
+3. Tailwindscc
+4. serverAction
+5. ReactForm
+6. Render (for email)
+7. React-email (for email template)
+8. ...
+
+## Clone it with few steps
 
 First, run the development server:
 

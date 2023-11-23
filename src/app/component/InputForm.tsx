@@ -22,9 +22,8 @@ const InputForm = () => {
   });
   const sendMail = async (val: any) => {
     const result = await SendEmail(val);
+    console.log(result);
     if (result?.success === false) {
-      console.log(result);
-
       toast.error("Email is invalid.");
     }
   };

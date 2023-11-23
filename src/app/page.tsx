@@ -4,6 +4,13 @@ import MemberJoined from "./component/MemberJoined";
 import SnowfallBG from "./component/SnowfalBG";
 import Link from "next/link";
 
+
+export const siteConfig = {
+  name: "Devletter",
+  description: "Devletter a newsletter for dev's made with Nextjs",
+  ogImage: "https://devletter.vercel.app/og-image.png",
+  url: "https://devletter.vercel.app/",
+}
 export default function Home() {
   return (
     <main className="flex relative h-screen flex-col items-center justify-between p-20 max-sm:p-4">
