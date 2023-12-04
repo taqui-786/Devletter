@@ -1,21 +1,29 @@
 "use client";
 
 import axios from "axios";
-import { useEffect, useState } from "react";
-export const dynamic = 'force-dynamic'
+import { useState } from "react";
+export const dynamic = "force-dynamic";
 const MyEmails = () => {
-  const [emails, setEmails] = useState<any>([]);
+  const [click, setClick] = useState("Get email quantity");
   const getEmails = async () => {
-    const data = await axios.get("/api/emails");
-    setEmails(data.data.data);
+    try {
+      setClick('🔅Loading...')
+      const data = await axios.get("/api/emails");
+      const emails = data.data.data;
+      setClick(`Total emails: ${emails.length}`);
+    } catch (error) {
+      setClick('Error Occured!')
+      console.log(error);
+    }
   };
-  useEffect(() => {
-    getEmails();
-  }, []);
+
   return (
-    <h1 className=" border rounded-md text-white font-poppins text-4xl p-4 max-sm:text-2xl">
-      Total Emails = {emails.length}
-    </h1>
+    <button
+      onClick={getEmails}
+      className=" border rounded-md text-white font-poppins text-4xl p-4 max-sm:text-2xl hover:bg-white hover:text-[#030712]"
+    >
+      {click}
+    </button>
   );
 };
 export default MyEmails;
