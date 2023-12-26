@@ -9,7 +9,7 @@ export async function POST(req: Request) {
         email: body.email,
       },
     });
-     // CHECKING EMAIL given ot Not
+     // CHECKING EMAIL given is already exist or Not
      if (!body.email) {
       return new Response("Action Prohibited!", { status: 301 });
     }

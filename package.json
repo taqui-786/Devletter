@@ -10,6 +10,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@hookform/resolvers": "^3.3.2",
     "@prisma/client": "^5.6.0",
     "@react-email/components": "^0.0.11",

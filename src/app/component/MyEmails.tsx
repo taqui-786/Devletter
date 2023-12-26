@@ -8,7 +8,7 @@ const MyEmails = () => {
   const getEmails = async () => {
     try {
       setClick('🔅Loading...')
-      const data = await axios.get("/api/emails");
+      const data = await axios.get("/api/emails",{ headers:{'Cache-Control': 'no-store'} });
       const emails = data.data.data;
       setClick(`Total emails: ${emails.length}`);
     } catch (error) {

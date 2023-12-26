@@ -4,14 +4,15 @@ import { SendEmail } from "@/lib/SendingEmail";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { Loader2, MailCheck } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { toast } from "sonner";
+import emailjs from '@emailjs/browser'
 export type EmailFormInput = z.infer<typeof EmailSchema>;
 const InputForm = () => {
   const [submitted, setSubmitted] = useState(false);
-
+const emailRef:any = useRef(null)
   const {
     register,
     handleSubmit,
@@ -20,7 +21,7 @@ const InputForm = () => {
   } = useForm<EmailFormInput>({
     resolver: zodResolver(EmailSchema),
   });
-  const sendMail = async (val: any) => {
+  const sendMailwithResend = async (val: any) => {
     const result = await SendEmail(val);
     console.log(result);
     if (result?.success === false) {
@@ -30,7 +31,9 @@ const InputForm = () => {
   const processForm: SubmitHandler<EmailFormInput> = async (data) => {
     const addToDb = await axios.post("/api/subscribe", data);
     if (addToDb.status === 200) {
-      sendMail(data);
+       await emailjs.sendForm("service_b9il39c","template_k2r7rye", emailRef.current ,'kxJ8hgjFVVPIIG5ar')
+      // sendMailwithResend(data); require resend subscription
+      
       reset();
       setSubmitted(true);
     } else if (addToDb.status === 201) {
@@ -54,11 +57,12 @@ const InputForm = () => {
         <>
           <form
             className="flex h-auto flex-row w-full justify-center items-center gap-2"
-            onSubmit={handleSubmit(processForm)}
+            onSubmit={handleSubmit(processForm)}  ref={emailRef}
           >
             <input
               className=" p-3 shadow-sm text-sm text-white bg-slate-900 border border-gray-700 transition-colors  min-w-[35%] font-poppins rounded-md "
               type="email"
+             
               required
               {...register("email")}
               placeholder="Enter your e-mail address"
